@@ -1,0 +1,9 @@
+.DS_Store
+.*.sw?
+*.vim
+.vscode
+.venv
+target
+tmp*
+*-workspace.json
+data/out/
