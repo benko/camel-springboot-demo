@@ -13,6 +13,9 @@ import com.redhat.training.camel.bookstore.model.User;
 import com.redhat.training.camel.bookstore.registry.BookNotFoundException;
 import com.redhat.training.camel.bookstore.registry.UserNotFoundException;
 
+/**
+ * Refer to README.md, section Bookstore.
+ */
 @Component
 public class BookstoreRoutes extends RouteBuilder {
 
@@ -31,7 +34,7 @@ public class BookstoreRoutes extends RouteBuilder {
         //     .maximumRedeliveries(3);
 
         // read the book catalog and add it to a singleton list
-        from("file:data/bookstore/?fileName=books.xml&noop=true")
+        from("file:data/bookstore/?fileName={{books.file:books.xml}}&noop=true")
             .routeId("bookLoader")
             .to("log:bookInitialRead?showAll=true")
             // split on an xpath expression
